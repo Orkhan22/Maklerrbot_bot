@@ -1,0 +1,9 @@
+- name: Dəyişiklikləri yadda saxla
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config --global user.name 'github-actions'
+          git config --global user.email 'github-actions@github.com'
+          git add seen_ids.txt
+          git commit -m "Update seen IDs" || exit 0
+          git push
